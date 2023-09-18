@@ -115,7 +115,7 @@ def scheduled_job():
     
     data=pd.read_excel("stock_data_nifty200.xlsx",index_col='index')
 
-    for i in range(10):
+    for i in range(len(data):
         final_data.append(stock_process(data.iloc[i],  from_Date, to_Date))
   
     result = pd.concat(final_data, axis=1).T.set_index("Company")
