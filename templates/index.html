@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        BODY{
+            background-color: azure;
+            background-image:url("{{ url_for('static', filename='bg12.png') }}");
+            background-repeat: no-repeat;
+            background-size: cover;
+            margin: 0;
+            /* ; */
+
+        }
+        p{
+      
+            background-color: gold;
+            text-align: center;
+            vertical-align: center;                 
+            
+            width: 200px;
+            height: 100px;
+            color: black;
+            border-radius: 25%;
+            font-size: 40px;
+            border: 2px solid black;
+        }
+        h1,h2{
+            padding: 10px;
+            margin: 0;
+            width: 100%;
+            background-color:rgb(53, 53, 53);
+            color: white;
+        }
+
+        .button-17 {
+
+  align-items: center;
+  appearance: none;
+  background-color: #fff;
+  border-radius: 24px;
+  border-style: none;
+  box-shadow: rgba(0, 0, 0, .2) 0 3px 5px -1px,rgba(0, 0, 0, .14) 0 6px 10px 0,rgba(0, 0, 0, .12) 0 1px 18px 0;
+  box-sizing: border-box;
+  color: #3c4043;
+  cursor: pointer;
+  display: inline-flex;
+  fill: currentcolor;
+  font-family: "Google Sans",Roboto,Arial,sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  height: 48px;
+  justify-content: center;
+  letter-spacing: .25px;
+  line-height: normal;
+  max-width: 100%;
+  overflow: visible;
+  padding: 2px 24px;
+  position: relative;
+  text-align: center;
+  text-transform: none;
+  transition: box-shadow 280ms cubic-bezier(.4, 0, .2, 1),opacity 15ms linear 30ms,transform 270ms cubic-bezier(0, 0, .2, 1) 0ms;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: auto;
+  will-change: transform,opacity;
+  z-index: 0;
+  margin: 10px;
+}
+
+.button-17:hover {
+  background: #F6F9FE;
+  color: #174ea6;
+}
+
+.button-17:active {
+  box-shadow: 0 4px 4px 0 rgb(60 64 67 / 30%), 0 8px 12px 6px rgb(60 64 67 / 15%);
+  outline: none;
+}
+
+.button-17:focus {
+  outline: none;
+  border: 2px solid #4285f4;
+}
+        
+    </style>
+</head>
+<body>
+    <h1>Happy Investing Journey </h1>
+    <h2>You investing in a stock that was Bullish </h2>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+
+    
+    <form method="POST" action="/result" onsubmit="$('#loading').show();">
+        <button class="button-17" role="button">Start Processing</button></form>
+
+        <div id="loading" style="display:none;">
+            <img height="400px" width="400px" src="{{ url_for('static', filename='loading.svg') }}" alt="Loading!" />
+            
+            <br>Loading!
+            it take a while to load
+            <h3>*Set Stoploss & Target And Don't Change The Trade Untill Stoploss Or Target Or Negative Supertrend</h3>
+            <h3>*Lumsun Investment After Complete Of Analyse</h3>
+            <h3>*Always buy at green & sell at red indicate by Signal Column</h3>
+            <h3>it better to invest in all time high (optianl)</h3>
+            <h3>*higher ema sloap, +ve 2nd diff of sloap ,+ve MACD & sloap,</h3>
+        </div>
+
+    <script type="text/javascript">
+        $('#loading').hide();
+    </script>
+
+    <form method="POST" action="/view" >
+        <button class="button-17" role="button">view data</button>
+    </form>
+
+</body>
+</html>

@@ -1,0 +1,11 @@
+Flask
+yfinance
+ta
+pandas
+openpyxl
+pandas
+numpy
+datetime
+apscheduler
+requests
+websocket

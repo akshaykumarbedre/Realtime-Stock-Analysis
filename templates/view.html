@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <style>*{
+        background-color: azure;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        border-spacing: 0;
+        margin-bottom: 20px;
+    }
+    
+    th, td {
+        padding: 10px;
+        text-align: left;
+        border-collapse: collapse;
+        border: 1px solid #ddd;
+    }
+    
+    th {
+        background-color: #3d3d3d;
+        color: white;
+    }
+    
+    tr:hover {
+        background-color: #f5f5f5;
+    }
+    
+    /* Add alternating row colors */
+    tr:nth-child(even) {
+        background-color: #860b0b;
+    }
+    
+    /* Add hover effect for cells */
+    td:hover {
+        background-color: #f0f0f0;
+    }
+    *{
+        margin: 0;
+        
+    }
+    h1{
+            padding: 10px;
+            margin: 0;
+            width: 100%;
+            background-color:rgb(53, 53, 53);
+            color: white;
+        }
+    </style>
+    <script type="text/javascript" src="https://unpkg.com/xlsx@0.15.1/dist/xlsx.full.min.js"></script>
+    
+</head>
+<body>
+
+    <div class="container mt-4">
+        <h1>Result</h1>
+        <br>
+        <!-- Render the DataFrame as an HTML table -->
+        <table id="proceesed_data">
+        {{ Pdata | safe }}
+        </table>
+        <br>
+        <button id="toggleButton">Show Complete Table</button>
+        <div id="compltete_data" style="display: none;">
+        {{ Result | safe }}
+        <button onclick="ExportToExcel('xlsx')">Export table to excel</button>
+        </div>
+        <script>
+
+            function ExportToExcel(type, fn, dl) {
+                var elt = document.getElementById('full_data_table');
+                var wb = XLSX.utils.table_to_book(elt, { sheet: "sheet1" });
+                return dl ?
+                    XLSX.write(wb, { bookType: type, bookSST: true, type: 'base64' }) :
+                    XLSX.writeFile(wb, fn || ('MySheetName.' + (type || 'xlsx')));
+            }
+    
+        </script>
+
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+            // Get references to the button and table
+            const toggleButton = document.getElementById("toggleButton");
+            const myTable = document.getElementById("compltete_data");
+
+            // Add a click event listener to the button
+            toggleButton.addEventListener("click", function () {
+                // Toggle the visibility of the table
+            if (myTable.style.display == "none") {
+                myTable.style.display = "block";
+                toggleButton.textContent = "Hide Complete Table";
+            } else {
+                myTable.style.display = "none";
+                toggleButton.textContent = "Show Complete Table";
+            }
+
+        });
+        });
+
+        </script>
+        
+       
+    </div>
+
+</body>
+</html>
