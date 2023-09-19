@@ -7,7 +7,7 @@ from apscheduler.schedulers.background import BackgroundScheduler
 import yfinance as yf
 
 scheduler = BackgroundScheduler()
-
+time1=None
 def alltimehigh(close):
     return int(max(close)==close.iloc[-1])
 
@@ -121,6 +121,7 @@ def scheduled_job():
     result = pd.concat(final_data, axis=1).T.set_index("Company")
     result.sort_index(axis=1, inplace=True)
     print(result)
+    time1=str(datatime.now())
 
     result.to_excel("data.xlsx")
 
@@ -146,7 +147,7 @@ def hello_world1():
 def view():
     result=pd.read_excel("data.xlsx")
     process_data=preprocess(result)
-    return render_template("view.html",Result=result.to_html(table_id='full_data_table', escape=False),Pdata=process_data.to_html(table_id='preocced_data', escape=False,))
+    return render_template("view.html",Result=result.to_html(table_id='full_data_table', escape=False),Pdata=process_data.to_html(table_id='preocced_data', escape=False,),Time=time1)
 
 if __name__=="__main__":
     application.run(host="0.0.0.0")
