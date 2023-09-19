@@ -128,7 +128,7 @@ def scheduled_job():
     result.to_excel("data.xlsx")
 
 # Schedule the job to run every set interval
-scheduler.add_job(scheduled_job, 'interval', seconds=60)
+scheduler.add_job(scheduled_job, 'interval', seconds=900)
 scheduler.start()
 
 application = Flask(__name__)
