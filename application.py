@@ -4,11 +4,9 @@ import pandas as pd
 import numpy as np
 from datetime import datetime
 from apscheduler.schedulers.background import BackgroundScheduler
-import yfinance as yfimport pytz
-  
-# get the standard UTC time 
-UTC = pytz.utc
-  
+import yfinance as yf
+import pytz
+
 # it will get the time zone 
 # of the specified location
 IST = pytz.timezone('Asia/Kolkata')
