@@ -122,7 +122,7 @@ def scheduled_job():
     print(result)
 
     f=open("time.txt","w")
-    f.write(str(datetime.now()))
+    f.write(str(datetime.now(IST)))
     f.close()
 
     result.to_excel("data.xlsx")
