@@ -88,27 +88,7 @@
 <body>
     <h1>Happy Investing Journey </h1>
     <h2>You investing in a stock that was Bullish </h2>
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
-
     
-    <form method="POST" action="/result" onsubmit="$('#loading').show();">
-        <button class="button-17" role="button">Start Processing</button></form>
-
-        <div id="loading" style="display:none;">
-            <img height="400px" width="400px" src="{{ url_for('static', filename='loading.svg') }}" alt="Loading!" />
-            
-            <br>Loading!
-            it take a while to load
-            <h3>*Set Stoploss & Target And Don't Change The Trade Untill Stoploss Or Target Or Negative Supertrend</h3>
-            <h3>*Lumsun Investment After Complete Of Analyse</h3>
-            <h3>*Always buy at green & sell at red indicate by Signal Column</h3>
-            <h3>it better to invest in all time high (optianl)</h3>
-            <h3>*higher ema sloap, +ve 2nd diff of sloap ,+ve MACD & sloap,</h3>
-        </div>
-
-    <script type="text/javascript">
-        $('#loading').hide();
-    </script>
 
     <form method="POST" action="/view" >
         <button class="button-17" role="button">view data</button>
